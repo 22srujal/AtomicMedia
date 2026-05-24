@@ -1,0 +1,269 @@
+.about {
+  position: relative;
+  padding: 0 0 120px;
+  border-top: 0;
+  border-bottom: 0;
+  isolation: isolate;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  left: 2%;
+  top: 28px;
+  width: 620px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(255, 87, 26, 0.1), transparent 67%);
+  filter: blur(72px);
+  opacity: 0.42;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.about-grid {
+  min-height: 546px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: center;
+  padding-inline: 0;
+}
+
+.about-portrait {
+  position: relative;
+  width: 544px;
+  height: 514px;
+  max-width: 100%;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  animation: portrait-float 8s ease-in-out infinite;
+}
+
+.about-portrait::before {
+  content: "";
+  position: absolute;
+  inset: -16px -32px -16px -16px;
+  background: rgba(255, 87, 26, 0.2);
+  filter: blur(32px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.about-portrait::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 514px;
+  height: 514px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+.about-portrait:hover::before {
+  opacity: 0.45;
+}
+
+.about-portrait > img {
+  width: 514px;
+  height: 514px;
+  max-width: calc(100% - 30px);
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  filter: saturate(0);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+}
+
+.about-note {
+  position: absolute;
+  left: 256px;
+  right: auto;
+  bottom: auto;
+  top: 399px;
+  width: 320px;
+  min-height: 147px;
+  padding: 24px;
+  background: rgba(26, 26, 26, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.34), 0 0 28px rgba(255, 87, 26, 0.08);
+}
+
+.about-note .eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--accent-light);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 1.8px;
+}
+
+.about-note p {
+  margin: 0;
+  color: rgba(226, 226, 226, 0.8);
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.6;
+  letter-spacing: 0.16px;
+}
+
+.about-content {
+  width: 544px;
+  max-width: 100%;
+  align-self: center;
+}
+
+.about-content h2 {
+  margin: 0 0 27px;
+  color: var(--text);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.28px;
+  text-transform: uppercase;
+}
+
+.about-content h2 span {
+  color: var(--accent-light);
+  text-shadow: 0 0 24px rgba(255, 181, 158, 0.18);
+}
+
+.about-content > p {
+  width: 544px;
+  max-width: 100%;
+  margin: 0 0 32px;
+  color: rgba(226, 226, 226, 0.7);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.16px;
+}
+
+.about-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.metric-card {
+  min-height: 118px;
+  padding: 15px 16px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 2px solid var(--accent-light);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.26), 0 0 24px rgba(255, 181, 158, 0.08);
+}
+
+.metric-card h3 {
+  margin: 0 0 4px;
+  color: var(--text);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.32px;
+}
+
+.metric-card p {
+  margin: 0;
+  color: rgba(226, 226, 226, 0.6);
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.16px;
+}
+
+@keyframes portrait-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .about-grid {
+    width: min(calc(100% - 48px), 1120px);
+  }
+
+  .about-portrait,
+  .about-content {
+    width: 100%;
+  }
+
+  .about-portrait {
+    height: auto;
+    aspect-ratio: 544 / 514;
+  }
+
+  .about-portrait > img,
+  .about-portrait::after {
+    width: min(100%, 514px);
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .about-note {
+    left: min(47%, 256px);
+    top: auto;
+    bottom: -32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about {
+    padding-bottom: 96px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 76px;
+  }
+
+  .about-portrait {
+    width: min(544px, 100%);
+    margin-inline: auto;
+  }
+
+  .about-content {
+    width: min(544px, 100%);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding-bottom: 80px;
+  }
+
+  .about-grid {
+    width: min(calc(100% - 40px), 544px);
+    gap: 112px;
+  }
+
+  .about-content h2 {
+    font-size: clamp(42px, 12vw, 58px);
+    letter-spacing: -0.8px;
+  }
+
+  .about-note {
+    left: 20px;
+    right: -12px;
+    width: auto;
+    min-height: 0;
+  }
+
+  .about-metrics {
+    grid-template-columns: 1fr;
+  }
+}

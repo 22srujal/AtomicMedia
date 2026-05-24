@@ -1,0 +1,45 @@
+:root {
+	--bg: #131313;
+	--bg-elevated: #1b1b1b;
+	--surface: rgba(26, 26, 26, 0.6);
+	--surface-strong: rgba(19, 19, 19, 0.4);
+	--surface-soft: rgba(26, 26, 26, 0.4);
+	--border: rgba(255, 255, 255, 0.1);
+	--border-strong: rgba(255, 255, 255, 0.2);
+	--text: #e2e2e2;
+	--text-muted: rgba(226, 226, 226, 0.6);
+	--text-faint: rgba(226, 226, 226, 0.4);
+	--accent: #ff571a;
+	--accent-light: #ffb59e;
+	--accent-soft: rgba(255, 181, 158, 0.2);
+	--shadow-strong: 0 25px 50px rgba(0, 0, 0, 0.35);
+	--radius-sm: 8px;
+	--radius-md: 12px;
+	--radius-pill: 999px;
+	--container: 1120px;
+	--container-wide: 1440px;
+	--space-4: 4px;
+	--space-8: 8px;
+	--space-12: 12px;
+	--space-16: 16px;
+	--space-20: 20px;
+	--space-24: 24px;
+	--space-32: 32px;
+	--space-40: 40px;
+	--space-48: 48px;
+	--space-64: 64px;
+	--space-80: 80px;
+	--space-96: 96px;
+	--space-120: 120px;
+	--space-160: 160px;
+	--font-display: "Hanken Grotesk", system-ui, sans-serif;
+	--font-ui: "Geist", system-ui, sans-serif;
+}
+
+body {
+	font-family: var(--font-display);
+	background: var(--bg);
+	color: var(--text);
+	line-height: 1.5;
+	overflow-x: hidden;
+}
