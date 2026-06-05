@@ -34,6 +34,18 @@
   opacity: 1;
 }
 
+@media (hover: none), (pointer: coarse), (max-width: 768px) {
+  .hover-glow:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .hover-glow::after,
+  .hover-glow:hover::after {
+    opacity: 0;
+  }
+}
+
 .parallax-layer {
   transform: translateY(var(--parallax-offset, 0px));
   transition: transform 0.2s ease-out;

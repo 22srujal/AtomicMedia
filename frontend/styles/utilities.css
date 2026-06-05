@@ -152,6 +152,12 @@ main section[id] {
   z-index: 1;
 }
 
+@media (hover: none), (pointer: coarse), (max-width: 768px) {
+  .mouse-glow {
+    display: none;
+  }
+}
+
 .page-loader {
   position: fixed;
   inset: 0;

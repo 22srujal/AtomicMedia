@@ -249,8 +249,14 @@ pageSections.forEach((section) => sectionObserver.observe(section));
 syncNavState();
 window.addEventListener("scroll", syncNavState, { passive: true });
 
+const canUseMouseGlow = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+if (mouseGlow && !canUseMouseGlow.matches) {
+  mouseGlow.style.display = "none";
+}
+
 window.addEventListener("mousemove", (event) => {
-  if (!mouseGlow) {
+  if (!mouseGlow || !canUseMouseGlow.matches) {
     return;
   }
   mouseGlow.style.transform = `translate(${event.clientX}px, ${event.clientY}px) translate(-50%, -50%)`;
