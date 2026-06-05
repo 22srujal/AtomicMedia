@@ -54,7 +54,12 @@
 }
 
 .slider-btn {
-  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(18, 18, 18, 0.6);
@@ -65,6 +70,13 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.slider-btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
 }
 
 .slider-btn:hover {
@@ -100,6 +112,7 @@
 }
 
 .works-slider-viewport {
+  width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -119,15 +132,22 @@
 }
 
 .works-slider-track {
+  --slide-gutter: clamp(30px, 4vw, 60px);
   display: flex;
-  gap: 24px;
-  padding: 4px 0 12px;
+  gap: 30px;
+  padding: 4px 0 50px;
+}
+
+.works-slider-track::before,
+.works-slider-track::after {
+  content: "";
+  flex: 0 0 var(--slide-gutter);
 }
 
 .works-slide {
   position: relative;
-  flex: 0 0 min(72vw, 760px);
-  height: clamp(320px, 48vw, 460px);
+  flex: 0 0 calc(100% - (var(--slide-gutter) * 2));
+  height: clamp(310px, 100vw, 520px);
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -253,10 +273,10 @@
   }
 }
 
-@media (hover: none), (pointer: coarse) {
+@media (hover: hover), (pointer: coarse) {
   .works-slide:hover {
     transform: none;
-    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 36px 92px rgba(0, 0, 0, 0.55), 0 0 30px #FF5C00;
     border-color: rgba(255, 255, 255, 0.08);
   }
 
@@ -359,7 +379,7 @@
 @media (hover: hover) and (pointer: fine) {
   .work-card:hover {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 36px 92px rgba(0, 0, 0, 0.55), 0 0 60px rgba(255, 121, 68, 0.2);
+    box-shadow: 0 36px 92px rgba(0, 0, 0, 0.55), 0 0 30px #FF5C00;
     border-color: rgba(255, 168, 121, 0.35);
   }
 

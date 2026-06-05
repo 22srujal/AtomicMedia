@@ -24,9 +24,6 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Initialize DB
-connectDB();
-
 const app = express();
 
 // Set security headers (excluding directives that block script/video loadings locally)
@@ -89,6 +86,10 @@ app.use("/api/upload", uploadRoutes);
 const frontendPath = path.join(__dirname, "../frontend");
 app.use(express.static(frontendPath));
 
+app.get(["/Admin/login", "/admin/login"], (_req, res) => {
+  res.redirect("/admin.html");
+});
+
 // Fallback to index.html for undefined frontend routes
 app.get("*", (req, res, next) => {
   if (req.path.startsWith("/api")) {
@@ -101,7 +102,7 @@ app.get("*", (req, res, next) => {
 app.use(notFound);
 app.use(errorHandler);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 if (!process.env.VERCEL) {
   app.listen(port, () => {

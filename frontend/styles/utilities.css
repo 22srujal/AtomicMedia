@@ -3,9 +3,7 @@
   min-height: 100vh;
   padding-top: var(--nav-offset, 132px);
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 0, rgba(255, 87, 26, 0.08), transparent 32rem),
-    linear-gradient(180deg, #131313 0%, #101010 100%);
+  background:#000000CF;
 }
 
 main section[id] {
@@ -20,7 +18,7 @@ main section[id] {
   width: 32rem;
   height: 32rem;
   border-radius: 50%;
-  background: rgba(255, 87, 26, 0.08);
+  background: #000000CF;
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
@@ -28,7 +26,7 @@ main section[id] {
 
 .page::after {
   inset: 18% -14rem auto auto;
-  background: rgba(255, 181, 158, 0.06);
+  background: #000000CF;
 }
 
 .container,
@@ -145,7 +143,7 @@ main section[id] {
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 87, 26, 0.12), transparent 64%);
+  background: radial-gradient(circle, #FF5C00, transparent 40%);
   filter: blur(22px);
   opacity: 0.55;
   pointer-events: none;

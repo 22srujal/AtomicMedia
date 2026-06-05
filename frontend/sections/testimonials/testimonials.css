@@ -10,7 +10,7 @@
 	position: absolute;
 	inset: 40px 0 auto 0;
 	height: 520px;
-	background: radial-gradient(circle at 50% 20%, rgba(255, 87, 26, 0.15), transparent 70%);
+	background: #000000CF;
 	filter: blur(60px);
 	opacity: 0.6;
 	pointer-events: none;
@@ -44,6 +44,10 @@
 .testimonials-track {
 	position: relative;
 	z-index: 1;
+}
+
+.testimonial-pagination {
+	display: none;
 }
 
 .testimonials-grid {
@@ -241,7 +245,7 @@
 	.testimonial-card:hover {
 		transform: translateY(-6px);
 		border-color: rgba(255, 181, 158, 0.35);
-		box-shadow: 0 36px 90px rgba(0, 0, 0, 0.55), 0 0 50px rgba(255, 121, 68, 0.18);
+		box-shadow: 0 36px 90px rgba(0, 0, 0, 0.55), 0 0 30px #FF5C00;
 	}
 }
 
@@ -279,6 +283,42 @@
 
 	.testimonials-grid::-webkit-scrollbar {
 		display: none;
+	}
+
+	.testimonial-pagination {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: max-content;
+		max-width: calc(100vw - 48px);
+		gap: 12px;
+		margin: 28px auto 0;
+		padding: 13px 18px;
+		border-radius: 999px;
+		background: rgba(14, 14, 14, 0.86);
+		border: 1px solid rgba(255, 92, 0, 0.2);
+		box-shadow: 0 0 26px rgba(255, 92, 0, 0.16), inset 0 0 18px rgba(255, 92, 0, 0.08);
+		backdrop-filter: blur(18px);
+		-webkit-backdrop-filter: blur(18px);
+	}
+
+	.testimonial-pagination-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 999px;
+		background: rgba(255, 92, 0, 0.38);
+		box-shadow: 0 0 10px rgba(255, 92, 0, 0.16);
+		opacity: 0.72;
+		transform: scale(1);
+		transition: width 0.28s ease, opacity 0.28s ease, transform 0.28s ease, background 0.28s ease;
+	}
+
+	.testimonial-pagination-dot.is-active {
+		width: 34px;
+		background: #FF5C00;
+		opacity: 1;
+		transform: scale(1.02);
+		box-shadow: 0 0 18px rgba(255, 92, 0, 0.46);
 	}
 
 	.testimonial-card {
@@ -339,4 +379,3 @@
 		opacity: 0.85;
 	}
 }
-
